@@ -1,0 +1,298 @@
+:root {
+    --bg-default: oklch(93.403% 0.00011 271.152);
+    --bg-light: oklch(97.015% 0.00011 271.152);
+    --font-default: oklch(10.668% 0.00001 271.152);
+    --color-hover: oklch(92.191% 0.0001 271.152);
+    --color-active: oklch(80.466% 0.00009 271.152);
+    --text-x-small: 0.825rem;
+    --text-small: 1rem;
+    --text-default: 1.125rem;
+    --text-tagline: 1.25rem;
+    --text-large: 1.75rem;
+    --text-x-large: 2rem;
+    --text-h1: 3rem;
+    --semantic-spacing-x-small: 0.25rem;
+    --semantic-spacing-small: 0.5rem;
+    --semantic-spacing-default: 1rem;
+    --semantic-spacing-large: 2rem;
+    --decorative-spacing-x-small: 4px;
+    --decorative-spacing-small: 8px;
+    --decorative-spacing-default: 16px;
+    --decorative-spacing-large: 24px;
+    --decorative-spacing-x-large: 36px;
+    --decorative-spacing-2x-large: 72px;
+    --nav-right-padding: 120px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --border-radius-3x-large: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1rem;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--decorative-spacing-x-large);
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to bottom right, var(--bg-light), var(--bg-default));
+    color: var(--font-default);
+}
+
+p, h1, h2 {
+    margin: 0;
+    font-weight: 400;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-main, .hero-nav {
+    height: 50%;
+    max-height: 400px;
+    padding-left: var(--decorative-spacing-2x-large);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    transition: padding 300ms ease;
+}
+
+h1 {
+    font-size: var(--text-h1);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--semantic-spacing-large);
+}
+
+h1 span {
+    margin-bottom: var(--semantic-spacing-x-small);
+}
+
+.h1-prefix {
+    font-size: var(--text-large);
+}
+
+.h1-suffix {
+    font-size: var(--text-x-large);
+}
+
+h2 {
+    font-size: var(--text-x-large);
+    margin-bottom: var(--semantic-spacing-default);
+}
+
+p {
+    font-size: var(--text-default);
+    margin-bottom: var(--semantic-spacing-x-small);
+}
+
+.tagline {
+    font-size: var(--text-tagline);
+}
+
+.hero-nav {
+    justify-content: center;
+    padding: 0 var(--nav-right-padding) 0 0;
+}
+
+.hero-nav a {
+    position: relative;
+    font-size: var(--text-large);
+    margin-bottom: var(--semantic-spacing-default);
+    color: var(--font-default);
+    text-decoration: none;
+}
+
+.hero-nav a:after {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    content: "";
+    width: 25%;
+    height: 2px;
+    background-color: var(--font-default);
+    transition: width 300ms ease;
+}
+
+.hero-nav a:hover:after {
+    width: 100%;
+}
+
+section {
+    padding: var(--decorative-spacing-2x-large);
+    transition: padding 300ms ease;
+}
+
+.techs-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: var(--semantic-spacing-large) 0;
+    gap: var(--decorative-spacing-x-large);
+    max-width: 800px;
+}
+
+.tech {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--decorative-spacing-default);
+    min-width: 230px;
+}
+
+.tech p {
+    font-size: var(--text-small);
+}
+
+.tech p + p {
+    font-size: var(--text-x-small);
+}
+
+.project {
+    margin: var(--semantic-spacing-large) 0;
+    padding-left: var(--decorative-spacing-large);
+    border-left: 1.5px solid var(--font-default);
+    max-width: 800px;
+}
+
+.project img {
+    width: 40%;
+    min-width: 250px;
+    border: 1px solid var(--font-default);
+    border-radius: var(--border-radius-medium);
+    display: block;
+}
+
+.project a {
+    display: inline-block;
+    font-size: var(--text-small);
+    background-color: var(--bg-light);
+    color: var(--font-default);
+    text-decoration: none;
+    padding: var(--decorative-spacing-x-small) var(--decorative-spacing-small);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--font-default);
+    margin-top: var(--semantic-spacing-default);
+    margin-right: var(--semantic-spacing-small);
+    transition: background-color 100ms linear;
+    cursor: pointer;
+}
+
+.project a:hover {
+    background-color: var(--color-hover);
+}
+
+.project a:active {
+    background-color: var(--color-active);
+}
+
+.project p {
+    font-size: var(--text-large);
+    margin-bottom: var(--semantic-spacing-small);
+}
+
+.project p + p {
+    font-size: var(--text-default);
+    margin-bottom: var(--semantic-spacing-default);
+}
+
+.high-contrast {
+    filter: contrast(1.05);
+}
+
+img.wide-thumb {
+    width: 50%;
+}
+
+.contact {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--semantic-spacing-large);
+}
+
+.contact a, .contact p {
+    font-size: var(--text-small);
+}
+
+.contact a {
+    color: var(--font-default);
+    text-decoration: underline;
+}
+
+.contact a:hover {
+    text-decoration: none;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+    margin: var(--semantic-spacing-large) 0;
+}
+
+.contact-wrapper button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.contact-wrapper button:hover {
+    opacity: 0.75;
+}
+
+.contact-wrapper button:active {
+    opacity: 0.5;
+}
+
+.copy-alert {
+    background-color: rgb(34, 173, 34);
+    color: white;
+    font-size: var(--text-small);
+    padding: 10px var(--decorative-spacing-large);
+    border-radius: var(--border-radius-3x-large);
+    position: fixed;
+    bottom: var(--decorative-spacing-default);
+    left: var(--decorative-spacing-large);
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+@media (max-width: 54rem) {
+    .hero {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .hero-main, .hero-nav {
+        height: auto;
+        padding: var(--decorative-spacing-x-large);
+    }
+
+    section {
+        padding: var(--decorative-spacing-x-large);
+    }
+}
+
+@media (max-width: 26.5rem) {
+    .contact a, .contact p {
+        font-size: var(--text-x-small);
+    }
+}

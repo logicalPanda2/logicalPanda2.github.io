@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./../icons/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./../icons/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./../icons/favicon.png">
+        <title>Keybinds and Accessibility Demo Case Study</title>
+        <link rel="stylesheet" href="./../static/case-studies.css" type="text/css">
+    </head>
+    <body>
+        <main>
+            <h1>Keybinds and accessibility demo</h1>
+            <p>Many apps often treat customization and accessibility as secondary priorities.</p>
+            <p>This project is my attempt at writing a system where personalization is treated as the primary concern.</p>
+            <p>It features shortcut customization and accessibility toggles within a minimal, functionality-first interface.</p>
+            <p>Although the scope is small, the underlying logic can be applied to much larger systems, especially ones that rely on keyboard-first workflows.</p>
+            <picture>
+                <source srcset="./../assets/keybinds-hook-mobile.png" media="(max-width: 30rem)">
+                <source srcset="./../assets/keybinds-hook.png" media="(min-width: 30rem)">
+                <img src="./../assets/keybinds-hook.png" alt="Interface with shortcuts and toggles" class="hook-image">
+            </picture>
+            <section>
+                <header>
+                    <h2>Goal</h2>
+                </header>
+                <p>The main goal was to build an isolated system that handles keyboard input and state transitions reliably.</p>
+                <img src="./../assets/keybinds-design.png" alt="Early design sketch" class="captioned-img">
+                <p class="img-caption">An exploratory sketch from the early stages of development.</p>
+                <p>Rather than a product or design exercise, I treated the project as an engineering problem.</p>
+                <p>The core logic: customizable shortcuts, accessibility toggles, and different input modes are prioritized before visual polish.</p>
+                <p>This allowed the interface to serve as an extension of the system, communicating the underlying behavior clearly.</p>
+            </section>
+            <section>
+                <header>
+                    <h2>Constraints</h2>
+                </header>
+                <p>I decided on three core constraints:</p>
+                <p>First, keyboard input must be the primary driver of state.</p>
+                <p>Second, the system's internal workings must be communicated in real-time.</p>
+                <p>Third, use of external frameworks, libraries or other forms of abstraction is not allowed.</p>
+                <br>
+                <p>These constraints forced the system to account for all interactions without relying on external dependencies.</p>
+            </section>
+            <section>
+                <header>
+                    <h2>Core problem</h2>
+                </header>
+                <p>The central challenge was keeping the system functional across different input modes.</p>
+                <br>
+                <p>Keyboard-driven systems often collapse when multiple different contexts coexist.</p>
+                <p>Simultaneously listening for shortcuts, typing into inputs, and editing keybindings can introduce conflicting responses and interfere with assistive technologies.</p>
+                <p>The system must be able to correctly transition between modes, distinguish between intent, and be transparent about its capabilities and limitations.</p>
+                <p>This avoids duplicated or unnecessarily complex logic, and allows users to easily recover upon making a mistake.</p>
+            </section>
+            <section>
+                <header>
+                    <h2>Key decisions</h2>
+                </header>
+                <p class="sub-heading">State transparency</p>
+                <p>State is not treated as purely implementation detail; the system makes all state explicit and observable.</p>
+                <p>Active keys, editing modes, focus targets, and error states are displayed directly to the UI.</p>
+                <img src="./../assets/keybinds-state-panel.png" alt="A panel showing a snapshot of the system state" class="very-small-img">
+                <p class="sub-heading">Deterministic behavior</p>
+                <p>All actions, regardless of whether it is governed by logic or styling, are executed immediately without any delay or partial state change.</p>
+                <p>This makes for a predictable system: given the same input, the result is always the same.</p>
+                <img src="./../assets/keybinds-toggle-gif.gif" alt="An immediate response is given when clicking a 'reduced motion' toggle" class="very-small-img captioned-img">
+                <p class="img-caption">A reduced motion toggle immediately removing the toggle's transition when clicked.</p>
+                <p class="sub-heading">Mode-based responses</p>
+                <p>The intent of various inputs are inferred through modes, not through timing or pattern-matching.</p>
+                <p>All modes are controlled and have clear entry and exit points, improving modularity and predictability.</p>
+                <p class="sub-heading">Providing a fallback</p>
+                <p>Features that involve a keyboard, such as shortcut editing, are disabled on touch-only devices.</p>
+                <p>This was a design decision rooted in system integrity.</p>
+                <p>For interactions that lack support, removal is better than an imperfect simulation.</p>
+            </section>
+            <section>
+                <header>
+                    <h2>Result</h2>
+                </header>
+                <p>The final outcome is an interface that showcases personalization through keyboard-first interactions and accessibility features.</p>
+                <img src="./../assets/keybinds-hook.png" alt="Interface with shortcuts and toggles">
+            </section>
+        </main>
+    </body>
+</html>
