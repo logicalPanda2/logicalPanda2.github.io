@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./../icons/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./../icons/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./../icons/favicon.png">
+        <title>Kanban-inspired Task Tracker Case Study</title>
+        <link rel="stylesheet" href="./../static/case-studies.css" type="text/css">
+    </head>
+    <body>
+        <main>
+            <h1>Kanban-inspired task tracker</h1>
+            <p>Managing tasks is a central part of day to day life, but it often feels difficult.</p>
+            <p>I wanted to create an app that makes creating and managing tasks easy.</p>
+            <p>An offline task board that supports both keyboard navigation and drag-and-drop behavior.</p>
+            <p>While this app might not be able to instantly cure procrastination, it can help manage tasks more effectively.</p>
+            <picture>
+                <source srcset="./../assets/kanban-hook-mobile.png" media="(max-width: 30rem)">
+                <source srcset="./../assets/kanban-hook.png" media="(min-width: 30rem)">
+                <img src="./../assets/kanban-hook.png" alt="Kanban board" class="hook-image">
+            </picture>
+            <section>
+                <header>
+                    <h2>Initial designs</h2>
+                </header>
+                <p>The goal was a task board representing three states: To Do, Work in Progress, and Completed.</p>
+                <p>Early sketches explored different layout and card compositions.</p>
+                <img src="./../assets/kanban-sketch.png" alt="Early sketch of a kanban board">
+                <p>From these explorations, I decided on a three-sectioned layout with minimal card controls, prioritizing clarity and keyboard accessibility.</p>
+                <p>This decision was translated into a low-fidelity Figma prototype to further validate the structure and flow between the components.</p>
+                <p>It's purpose is to allow immediate implementation rather than visual polish, ensuring the design can be built without ambiguity.</p>
+                <img src="./../assets/kanban-figma.png" alt="Figma design of a kanban board">
+            </section>
+            <section>
+                <header>
+                    <h2>Interactions as a primary feature</h2>
+                </header>
+                <p>A core challenge was balancing drag-and-drop behavior with a keyboard-first workflow.</p>
+                <p>Tasks can be moved between columns using either method, without one feeling like a secondary or compromised experience.</p>
+                <p class="sub-heading">Implementing keyboard-first interactions</p>
+                <p>I decided to add two arrow buttons on the bottom of each task card.</p>
+                <p>The design is made to be intuitive, requiring no additional visual hints.</p>
+                <p>Focus states are refined to look visually appealing while still being accessible.</p>
+                <img src="./../assets/kanban-keyboard-gif.gif" alt="A task card being moved through keyboard interaction" class="small-img">
+                <p class="sub-heading">Implementing drag-and-drop</p>
+                <p>I used react-dnd to implement custom drag-and-drop features.</p>
+                <p>The cards act as a draggable object, and the columns act as drop targets, allowing smooth movement between columns.</p>
+                <p>Both interaction methods update the same state, ensuring consistent behavior regardless of input.</p>
+                <img src="./../assets/kanban-dnd-gif.gif" alt="A task card being moved through drag and drop interaction" class="small-img">
+            </section>
+            <section>
+                <header>
+                    <h2>Adding a tag system</h2>
+                </header>
+                <p>Each task includes a tag, visually represented as a small dot at the upper right corner of each task card.</p>
+                <p>Tags can be set to Low, Medium, High, or left uncategorized, and intentionally do not carry a predefined meaning.</p>
+                <p>Rather than hard-coding labels such as "difficulty", interpretation is left to the user. A tag can represent priority, effort, estimated time, or other personal criteria.</p>
+                <img src="./../assets/kanban-tag-card.png" alt="A high priority task" class="captioned-img small-img">
+                <p class="img-caption">One possible interpretation of the tags, being "priority".</p>
+            </section>
+            <section>
+                <header>
+                    <h2>Finished product</h2>
+                </header>
+                <p>The tags are a central part of the app. For you, what would the tags represent best?</p>
+                <img src="./../assets/kanban-hook.png" alt="Kanban board">
+            </section>
+        </main>
+    </body>
+</html>
