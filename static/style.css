@@ -105,7 +105,7 @@ p {
     padding: 0 var(--nav-right-padding) 0 0;
 }
 
-.hero-nav > div {
+.hero-a-container {
     margin-bottom: var(--semantic-spacing-default);
 }
 
