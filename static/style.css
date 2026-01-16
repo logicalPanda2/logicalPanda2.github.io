@@ -209,10 +209,6 @@ section {
     margin-bottom: var(--semantic-spacing-default);
 }
 
-.high-contrast {
-    filter: contrast(1.05);
-}
-
 img.wide-thumb {
     width: 50%;
 }
