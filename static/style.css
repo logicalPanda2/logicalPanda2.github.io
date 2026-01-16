@@ -105,10 +105,13 @@ p {
     padding: 0 var(--nav-right-padding) 0 0;
 }
 
+.hero-nav > div {
+    margin-bottom: var(--semantic-spacing-default);
+}
+
 .hero-nav a {
     position: relative;
     font-size: var(--text-large);
-    margin-bottom: var(--semantic-spacing-default);
     color: var(--font-default);
     text-decoration: none;
 }
@@ -118,7 +121,7 @@ p {
     left: 0;
     bottom: -2px;
     content: "";
-    width: 25%;
+    width: 25px;
     height: 2px;
     background-color: var(--font-default);
     transition: width 300ms ease;
