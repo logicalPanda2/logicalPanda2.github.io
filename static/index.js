@@ -21,18 +21,43 @@ async function copyText(text) {
 }
 
 let lastPageX = 0;
+let lastPageY = 0;
 let lastClientY = 0;
 
 document.addEventListener("mousemove", setGradientOnScroll);
 document.addEventListener("scroll", setGradientOnScroll);
 
+const cards = [
+    ...document.querySelectorAll(".tech"),
+    ...document.querySelectorAll(".project"),
+    ...document.querySelectorAll(".contact"),
+];
+
 function setGradientOnScroll(e) {
     if(e.type === "mousemove") {
         document.body.style.background = `radial-gradient(circle 300px at ${e.pageX}px ${e.pageY}px, var(--bg-default), var(--bg-dark))`;
         lastPageX = e.pageX;
-        lastClientY = e.clientY;   
+        lastPageY = e.pageY;
+        lastClientY = e.clientY;
+
+        cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const localX = e.clientX - rect.left;
+            const localY = e.clientY - rect.top;
+            
+            card.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
+        });
     } else if(e.type === "scroll") {
-        const currentY = window.pageYOffset + lastClientY;
-        document.body.style.background = `radial-gradient(circle 300px at ${lastPageX}px ${currentY}px, var(--bg-default), var(--bg-dark))`;
+        const currentPageY = window.pageYOffset + lastClientY;
+        document.body.style.background = `radial-gradient(circle 300px at ${lastPageX}px ${currentPageY}px, var(--bg-default), var(--bg-dark))`;
+
+        cards.forEach((card) => {
+            const currentClientY = lastPageY - window.pageYOffset;
+            const rect = card.getBoundingClientRect();
+            const localX = e.clientX - rect.left;
+            const localY = currentClientY - rect.top;
+            
+            card.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
+        });
     }
 }

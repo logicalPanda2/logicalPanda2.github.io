@@ -160,7 +160,7 @@ section > p {
     min-width: 18rem;
     background-color: var(--bg-default);
     border: 1px solid var(--bg-light);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     padding: var(--decorative-spacing-m) var(--decorative-spacing-ml);
     border-radius: var(--border-radius-s);
 }
@@ -179,7 +179,7 @@ section > p {
     gap: var(--semantic-spacing-m);
     background-color: var(--bg-default);
     border: 1px solid var(--bg-light);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     padding: var(--decorative-spacing-l);
     border-radius: var(--border-radius-m);
     min-width: 18rem;
@@ -189,7 +189,7 @@ section > p {
 .project img {
     border-radius: var(--border-radius-m);
     border: 1px solid var(--bg-light);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     max-width: 100%;
     height: auto;
 }
@@ -203,7 +203,7 @@ section > p {
     border: 1px solid var(--bg-light);
     border-radius: var(--border-radius-s);
     padding: var(--decorative-spacing-xs) var(--decorative-spacing-s);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     color: var(--font-default);
     text-decoration: none;
     transition: background-color 120ms ease;
@@ -266,7 +266,7 @@ section > p {
     border: 1px solid var(--bg-light);
     border-radius: var(--border-radius-full);
     padding: var(--decorative-spacing-s) var(--decorative-spacing-ml);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     font-size: var(--text-s);
     transition: opacity 250ms ease;
     opacity: 0;
