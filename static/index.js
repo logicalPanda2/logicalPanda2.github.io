@@ -19,3 +19,20 @@ async function copyText(text) {
         toast.style.opacity = 0;
     }, 5000);
 }
+
+let lastPageX = 0;
+let lastClientY = 0;
+
+document.addEventListener("mousemove", setGradientOnScroll);
+document.addEventListener("scroll", setGradientOnScroll);
+
+function setGradientOnScroll(e) {
+    if(e.type === "mousemove") {
+        document.body.style.background = `radial-gradient(circle 300px at ${e.pageX}px ${e.pageY}px, var(--bg-default), var(--bg-dark))`;
+        lastPageX = e.pageX;
+        lastClientY = e.clientY;   
+    } else if(e.type === "scroll") {
+        const currentY = window.pageYOffset + lastClientY;
+        document.body.style.background = `radial-gradient(circle 300px at ${lastPageX}px ${currentY}px, var(--bg-default), var(--bg-dark))`;
+    }
+}
