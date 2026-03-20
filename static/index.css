@@ -199,21 +199,21 @@ section > p {
     gap: var(--decorative-spacing-m);
 }
 .project a {
-    background-color: var(--bg-light);
+    background-color: var(--bg-default);
     border: 1px solid var(--bg-light);
     border-radius: var(--border-radius-s);
     padding: var(--decorative-spacing-xs) var(--decorative-spacing-s);
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     color: var(--font-default);
     text-decoration: none;
-    transition: background-color 120ms ease;
+    transition: background-color 120ms ease, opacity 120ms ease;
 }
 .project a:hover, .project a:focus-visible {
-    background-color: var(--bg-default);
+    background-color: var(--bg-dark);
     outline: none;
 }
 .project a:active {
-    background-color: var(--bg-dark);
+    opacity: 0.5;
 }
 .project-title {
     font-size: var(--text-xl);
