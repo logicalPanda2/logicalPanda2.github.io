@@ -158,7 +158,7 @@ section > p {
     align-items: center;
     gap: var(--decorative-spacing-ml);
     min-width: 18rem;
-    background-color: var(--bg-default);
+    background-color: var(--bg-dark);
     border: 1px solid var(--bg-light);
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     padding: var(--decorative-spacing-m) var(--decorative-spacing-ml);
@@ -177,7 +177,7 @@ section > p {
     display: flex;
     flex-flow: column nowrap;
     gap: var(--semantic-spacing-m);
-    background-color: var(--bg-default);
+    background-color: var(--bg-dark);
     border: 1px solid var(--bg-light);
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
     padding: var(--decorative-spacing-l);
