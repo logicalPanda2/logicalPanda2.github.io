@@ -31,7 +31,7 @@ const cards = [
     ...document.querySelectorAll(".tech"),
     ...document.querySelectorAll(".project"),
     ...document.querySelectorAll(".contact"),
-];
+].map((el) => ({ el: el, localX: 0 }));
 
 function setGradientOnScroll(e) {
     if(e.type === "mousemove") {
@@ -41,23 +41,23 @@ function setGradientOnScroll(e) {
         lastClientY = e.clientY;
 
         cards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
+            const rect = card.el.getBoundingClientRect();
             const localX = e.clientX - rect.left;
             const localY = e.clientY - rect.top;
+            card.localX = localX;
             
-            card.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
+            card.el.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
         });
     } else if(e.type === "scroll") {
         const currentPageY = window.pageYOffset + lastClientY;
         document.body.style.background = `radial-gradient(circle 300px at ${lastPageX}px ${currentPageY}px, var(--bg-default), var(--bg-dark))`;
 
         cards.forEach((card) => {
-            const currentClientY = lastPageY - window.pageYOffset;
-            const rect = card.getBoundingClientRect();
-            const localX = e.clientX - rect.left;
-            const localY = currentClientY - rect.top;
+            const rect = card.el.getBoundingClientRect();
+            const localX = card.localX;
+            const localY = lastClientY - rect.top;
             
-            card.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
+            card.el.style.background = `radial-gradient(circle 300px at ${localX}px ${localY}px, var(--bg-default), var(--bg-dark))`;
         });
     }
 }
