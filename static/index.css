@@ -287,6 +287,10 @@ footer span {
     text-align: center;
 }
 
+.long-desc {
+    max-width: 70vw;
+}
+
 @media (max-width: 55rem) {
     body > header {
         flex-flow: column nowrap;
@@ -313,18 +317,39 @@ footer span {
     main {
         padding: var(--decorative-spacing-xl);
     }
-
+    
     section > p {
         font-size: var(--text-s);
     }
     .project-desc {
         font-size: var(--text-s);
     }
+    .project {
+        padding: var(--decorative-spacing-ml);
+    }
+
+    .long-desc {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 44rem) {
+    .tech {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+        min-width: auto;
+        width: 45%;
+        max-width: 45%;
+    }
 }
 
 @media (max-width: 25rem) {
     .contact-title {
-        display: flex;
-        flex-flow: column nowrap;
+        font-size: var(--text-xs);
+    }
+
+    footer {
+        justify-content: center;
     }
 }
