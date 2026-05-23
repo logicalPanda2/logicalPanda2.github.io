@@ -211,7 +211,7 @@ p {
     transition: background-color 120ms ease, opacity 120ms ease;
 }
 .project a:hover, .project a:focus-visible {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-light);
     outline: none;
 }
 .project a:active {
